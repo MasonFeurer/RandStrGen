@@ -1,7 +1,7 @@
 RandStrGen is a Command-Line tool for generating strings of some length, from a pool of characters.
 
 ## Compiling
-A built binary for MacOS is at `/rand-str-gen`.
+A built binary for MacOS is at `./rand-str-gen`.
 
 Otherwise, you can compile the source code with
 ```bash
