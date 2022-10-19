@@ -162,8 +162,12 @@ fn main() {
 
     // --- PARSE POOL MODIFIERS (ENTRIES) ---
     while let Some(arg) = args.next() {
+        if arg.is_empty() {
+            continue;
+        }
+
         let mut chars = arg.chars();
-        let prefix = chars.next().expect("expected + or -");
+        let prefix = chars.next().unwrap();
 
         let state = match prefix {
             '+' => true,
