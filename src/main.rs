@@ -66,7 +66,7 @@ rand-str-gen 10
 {0}// Without misc symbols{1}
 rand-str-gen 10 -m
 
-{0}// With custom set of characters{1}
+{0}// With custom set of characters: ['%', '$', '^', '@']{1}
 rand-str-gen 10 -m "+[%$^@]"
 
 {0}// With default sets, but without '.'{1}

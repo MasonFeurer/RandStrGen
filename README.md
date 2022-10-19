@@ -9,10 +9,7 @@ git clone "https://github.com/MasonFeurer/RandStrGen.git"
 cd RandStrGen
 cargo build --release
 ```
-Once built, you can run it with
-```bash
-./target/release/rand-str-gen
-```
+And an executable will be placed in `./target/release`.
 
 ## Using
 For help with optional and/or required arguments, use
@@ -20,22 +17,22 @@ For help with optional and/or required arguments, use
 rand-str-gen --help
 ```
 
-To generate a string of length 10, use
+Generate a string of length 10
 ```bash
 rand-str-gen 10
 ```
 
-To exclude misc symbols, use
+Then exclude misc symbols
 ```bash
 rand-str-gen 10 -m
 ```
 
-To add custom set of characters
+Then add characters to pool: '%', '$', '^', '@'
 ```bash
-rand-str-gen 10 -m "+[%$^@]"
+rand-str-gen 10 "+[%$^@]"
 ```
 
-To use default sets, but without '.'
+Use default sets, but without '.'
 ```bash
 rand-str-gen 10 "-[.]"
 ```
