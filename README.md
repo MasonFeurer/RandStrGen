@@ -25,7 +25,17 @@ To generate a string of length 10, use
 rand-str-gen 10
 ```
 
-To exclude symbols, use
+To exclude misc symbols, use
 ```bash
-rand-str-gen 10 -s
+rand-str-gen 10 -m
+```
+
+To add custom set of characters
+```bash
+rand-str-gen 10 -m "+[%$^@]"
+```
+
+To use default sets, but without '.'
+```bash
+rand-str-gen 10 "-[.]"
 ```
