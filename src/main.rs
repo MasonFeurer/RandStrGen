@@ -1,5 +1,3 @@
-#![feature(let_chains)]
-
 use cli_clipboard::{ClipboardContext, ClipboardProvider};
 use getrandom::getrandom;
 use termion::{color::*, style};
@@ -123,8 +121,8 @@ fn main() {
             "--copy" | "-c" => copy_cond = true,
             "--repeat" | "-r" => {
                 let Some(arg) = args.next() else {
-            		err!("expected arg: repeat count", USE_HELP_MSG);
-            	};
+                    err!("expected arg: repeat count", USE_HELP_MSG);
+                };
                 repeat = match arg.parse() {
                     Ok(count) => count,
                     Err(e) => err!(&format!("invalid count: {e}"), USE_HELP_MSG),
@@ -153,7 +151,7 @@ fn main() {
     }
 
     let Some(len) = len else {
-    	err!("expected arg: length of password", USE_HELP_MSG)	
+        err!("expected arg: length of password", USE_HELP_MSG)
     };
 
     let mut use_defined_sets = [true; DEFINED_SETS.len()];
@@ -223,11 +221,11 @@ fn main() {
     }
     for c in remove_chars {
         let Some(idx) = pool.iter().position(|c2| *c2 == c) else {
-    		err!(
-    			&format!("can't remove character from pool, doesn't exist: '{}'", c),
-    			&format!("characters in the set are: {pool:?}")
-    		)
-    	};
+            err!(
+                &format!("can't remove character from pool, doesn't exist: '{}'", c),
+                &format!("characters in the set are: {pool:?}")
+            )
+        };
         pool.remove(idx);
     }
 
@@ -243,7 +241,7 @@ fn main() {
         println!("{}", string);
     }
 
-    if let Some(string) = strings.last() && copy_cond {
+    if let (Some(string), true) = (strings.last(), copy_cond) {
         let mut cb = ClipboardContext::new().expect("failed to create OS clipboard context");
         cb.set_contents(string.clone())
             .expect("failed to set OS clipboard contents");
